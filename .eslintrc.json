@@ -1,0 +1,111 @@
+{
+    "extends": ["eslint:recommended", "plugin:node/recommended", "prettier"],
+    "plugins": ["node", "prettier", "import", "prefer-arrow"],
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ],
+        "block-scoped-var": "error",
+        "eqeqeq": "error",
+        "no-var": "error",
+        "prefer-const": "error",
+        "eol-last": "error",
+        "prefer-arrow-callback": "error",
+        "no-trailing-spaces": "error",
+        "prefer-arrow/prefer-arrow-functions": [
+            "error",
+            {
+                "disallowPrototype": true,
+                "singleReturnOnly": false,
+                "classPropertiesAllowed": false
+            }
+        ],
+        "import/no-anonymous-default-export": [
+            "error",
+            {
+                "allowArray": false,
+                "allowArrowFunction": false,
+                "allowAnonymousClass": false,
+                "allowAnonymousFunction": false,
+                "allowCallExpression": false, // The true value here is for backward compatibility
+                "allowNew": false,
+                "allowLiteral": false,
+                "allowObject": false
+            }
+        ],
+        "quotes": ["warn", "single", {"avoidEscape": true}],
+        "jsx-quotes": ["error", "prefer-single"],
+        "no-restricted-properties": [
+            "error",
+            {
+                "object": "describe",
+                "property": "only"
+            },
+            {
+                "object": "it",
+                "property": "only"
+            }
+        ],
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "variableLike",
+                "format": ["camelCase", "PascalCase"],
+                "leadingUnderscore": "allow"
+            },
+            {
+                "selector": ["classMethod", "classProperty"],
+                "format": ["camelCase", "PascalCase"],
+                "leadingUnderscore": "allow"
+            },
+            {
+                "selector": ["interface", "typeAlias"],
+                "format": ["PascalCase"],
+                "leadingUnderscore": "allow"
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": ["**/*.ts", "**/*.tsx"],
+            "parser": "@typescript-eslint/parser",
+            "extends": ["plugin:@typescript-eslint/recommended"],
+            "rules": {
+                "@typescript-eslint/ban-ts-comment": "warn",
+                "@typescript-eslint/no-non-null-assertion": "off",
+                "@typescript-eslint/no-use-before-define": "off",
+                "@typescript-eslint/no-warning-comments": "off",
+                "@typescript-eslint/no-empty-function": "off",
+                "@typescript-eslint/no-var-requires": "off",
+                "@typescript-eslint/explicit-module-boundary-types": "off",
+                "@typescript-eslint/ban-types": "off",
+                "@typescript-eslint/camelcase": "off",
+                "node/no-missing-import": "off",
+                "node/no-empty-function": "off",
+                "node/no-unsupported-features/es-syntax": "off",
+                "node/no-unsupported-features": "off",
+                "node/no-unpublished-import": "off",
+                "node/no-unsupported-features/node-builtins": "off",
+                "node/no-unsupported-features/es-builtins": "off",
+                "node/no-missing-require": "off",
+                "node/shebang": "off",
+                "no-dupe-class-members": "off",
+                "require-atomic-updates": "off"
+            },
+            "parserOptions": {
+                "ecmaVersion": 2018,
+                "sourceType": "module"
+            }
+        }
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}
