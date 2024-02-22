@@ -2,7 +2,6 @@ name: uKonn-X Backend Build
 
 env:
     NODE_VERSION: 20
-    RUNNER_LOCATION: ubuntu-22.04
 
 on:
     push:
@@ -13,7 +12,7 @@ jobs:
     main_job:
         name: uKonn-X Backend
         timeout-minutes: 5
-        runs-on: ${{ env.RUNNER_LOCATION }}
+        runs-on: ubuntu-22.04
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4

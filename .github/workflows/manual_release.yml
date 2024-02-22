@@ -2,7 +2,6 @@ name: Create Release
 
 env:
     NODE_VERSION: 20
-    RUNNER_LOCATION: ubuntu-22.04
 
 on:
     # Allows you to run this workflow manually from the Actions tab
@@ -12,7 +11,7 @@ jobs:
     main_job:
         name: Traffic Lights Demo
         timeout-minutes: 5
-        runs-on: ${{ env.RUNNER_LOCATION }}
+        runs-on: ubuntu-22.04
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
