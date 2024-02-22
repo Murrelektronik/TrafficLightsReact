@@ -12,7 +12,7 @@ jobs:
     main_job:
         name: Traffic Lights Demo
         timeout-minutes: 5
-        runs-on: ${{ vars.RUNNER_LOCATION }}
+        runs-on: ${{ env.RUNNER_LOCATION }}
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
