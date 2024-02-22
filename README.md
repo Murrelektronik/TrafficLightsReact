@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+# Traffic Lights Demo Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Traffic Lights Demo project is a small simulation of a traffic light system implemented using Node.js, React, Vite, and Material-UI. It showcases the functionality of a basic traffic light control system, including the transition between red, yellow, and green lights according to predefined timing intervals.
 
-Currently, two official plugins are available:
+This project serves as a simple demonstration of how traffic lights function in a web environment and can be useful for educational purposes or as a starting point for more complex traffic management simulations. It provides a visual representation of traffic light behavior using React components styled with Material-UI, allowing for easy customization and extension to suit different scenarios or experiments related to traffic flow control on the web platform.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
 
-## Expanding the ESLint configuration
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- Basic traffic light simulation with red, yellow, and green lights.
+- Adjustable timing intervals for each light phase.
+- Responsive design with Material-UI components for easy viewing on different devices.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Requirements
+
+- Node.js and npm (Node Package Manager) installed on your machine.
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Murrelektronik/TrafficLightsReact.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Change directory:
+```bash
+cd TrafficLightsReact
+```
+
+
+3. Install Dependencies 
+
+```bash
+npm i
+```
+
+## Usage
+
+```bash
+npm run dev
+```
+
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Murrelektronik/TrafficLightsReact/blob/master/License)
