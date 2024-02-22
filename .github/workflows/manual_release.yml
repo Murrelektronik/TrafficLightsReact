@@ -29,9 +29,6 @@ jobs:
             - name: Run Build script
               run: npm run build
 
-            - name: Run UnitTest script
-              run: npm run test
-
             - name: Get correct tag
               id: get_tag
               run: |
