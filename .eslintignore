@@ -3,3 +3,7 @@ build
 seeders
 migrations
 vite.config.ts
+vite-env.d.ts
+.github
+.vscode
+dist
