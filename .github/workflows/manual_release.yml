@@ -1,0 +1,51 @@
+name: Create Release
+
+env:
+    NODE_VERSION: 20
+    RUNNER_LOCATION: ubuntu-22.04
+
+on:
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+jobs:
+    main_job:
+        name: Traffic Lights Demo
+        timeout-minutes: 5
+        runs-on: ${{ vars.RUNNER_LOCATION }}
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+
+            - name: Install NPM dependencies
+              run: npm i
+
+            - name: Run Build script
+              run: npm run build
+
+            - name: Run UnitTest script
+              run: npm run test
+
+            - name: Get correct tag
+              id: get_tag
+              run: |
+                  git fetch --tags
+                  if [[ ${{ startsWith(github.ref_name, 'v*.*.*') == false}} ]]; then
+                    all_tags=$(git tag --sort=-version:refname)
+                    echo "tag=$(echo "$all_tags" | head -n 1)" >> "$GITHUB_OUTPUT"
+                  else
+                    echo "tag=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+                  fi
+            - name: Publish release
+              uses: ncipollo/release-action@v1
+              with:
+                  allowUpdates: false # explicitly set to false so that nobody thinks to change it
+                  generateReleaseNotes: true
+                  tag: ${{ steps.get_tag.outputs.tag }}

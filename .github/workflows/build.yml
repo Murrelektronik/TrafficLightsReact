@@ -1,0 +1,35 @@
+name: uKonn-X Backend Build
+
+env:
+    NODE_VERSION: 20
+    RUNNER_LOCATION: ubuntu-22.04
+
+on:
+    push:
+    pull_request:
+    workflow_dispatch:
+
+jobs:
+    main_job:
+        name: uKonn-X Backend
+        timeout-minutes: 5
+        runs-on: ${{ vars.RUNNER_LOCATION }}
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0 # Fetches all history for all tags and branches
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+
+            - name: Install NPM dependencies
+              run: npm i
+
+            - name: Run Build script
+              run: npm run build
+
+            - name: Run UnitTest script
+              run: npm run test
